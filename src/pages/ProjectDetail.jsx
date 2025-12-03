@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { supabase } from '../services/supabase';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { ArrowLeft, Calendar, Database, Layers, Github, ExternalLink, Code2 } from 'lucide-react';
+import { ArrowLeft, Calendar, Database, Github, ExternalLink, Code2 } from 'lucide-react';
 
 export default function ProjectDetail() {
     const { id } = useParams();
@@ -25,14 +25,22 @@ export default function ProjectDetail() {
     return (
         <div className="min-h-screen bg-tech-bg pb-20">
 
-            {/* --- HERO SECTION CINEMATICA --- */}
-            <div className="relative w-full h-[50vh] flex flex-col justify-end">
+            {/* --- HERO SECTION CINEMATICA (MODIFICATA) --- */}
+            {/* 1. min-h-[60vh]: Aumentiamo l'altezza per evitare che il testo tocchi il tetto */}
+            <div className="relative w-full min-h-[60vh] flex flex-col justify-end">
+
                 {/* Sfondo con Immagine Sfocata o Gradiente */}
                 <div className="absolute inset-0 overflow-hidden z-0">
                     {project.image_url ? (
                         <>
-                            <img src={project.image_url} className="w-full h-full object-cover opacity-30 blur-xl scale-110" alt="bg" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-tech-bg via-tech-bg/80 to-transparent"></div>
+                            {/* Immagine di sfondo */}
+                            <img
+                                src={project.image_url}
+                                className="w-full h-full object-cover opacity-40 blur-xl scale-110"
+                                alt="bg"
+                            />
+                            {/* 2. Gradiente rinforzato: via-tech-bg/90 assicura che il testo sia leggibile */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-tech-bg via-tech-bg/90 to-transparent"></div>
                         </>
                     ) : (
                         <div className={`w-full h-full bg-gradient-to-br ${project.category === 'web' ? 'from-blue-900/40' : 'from-indigo-900/40'} to-tech-bg`}></div>
@@ -40,7 +48,9 @@ export default function ProjectDetail() {
                 </div>
 
                 {/* Contenuto Hero */}
-                <div className="relative z-10 max-w-4xl mx-auto w-full px-6 pb-12">
+                {/* 3. pt-32: Aggiungiamo padding in alto per proteggere dalla Navbar */}
+                <div className="relative z-10 max-w-4xl mx-auto w-full px-6 pb-16 pt-32">
+
                     <Link to="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-white mb-6 transition-colors text-sm font-medium">
                         <ArrowLeft size={16} /> Torna ai Progetti
                     </Link>
@@ -56,7 +66,7 @@ export default function ProjectDetail() {
                 </span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-tight shadow-black drop-shadow-lg">
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight shadow-black drop-shadow-lg">
                         {project.title}
                     </h1>
 
@@ -71,7 +81,6 @@ export default function ProjectDetail() {
                                         <ExternalLink size={18} /> Visita Sito Live
                                     </a>
                                 )}
-                                {/* Se hai la repo github nel metadata, la mostriamo. Altrimenti nulla. */}
                                 {project.repo_url && (
                                     <a href={project.repo_url} target="_blank" rel="noreferrer"
                                        className="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-lg font-medium flex items-center gap-2 transition-all">
@@ -88,7 +97,6 @@ export default function ProjectDetail() {
                                         <Database size={18} /> Dataset NASA
                                     </a>
                                 )}
-                                {/* Per la tesi, magari vuoi mettere il link alla repo se esiste */}
                                 <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-indigo-500/20">
                                     <Code2 size={18} /> Vedi Implementazione
                                 </button>
