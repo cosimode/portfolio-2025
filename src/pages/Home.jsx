@@ -59,7 +59,7 @@ export default function Home() {
             {/* HERO SECTION */}
             <div className="mb-24 animate-fade-in">
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
-                    Cosimo<span className="text-slate-600">.</span>Portfolio
+                    Cosimo<span className="text-slate-600">.</span>Dev
                 </h1>
                 <p className="text-xl text-slate-400 max-w-2xl leading-relaxed">
                     Laureato Triennale in <b>Ingegneria Informatica</b>. <br/>

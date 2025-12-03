@@ -29,7 +29,7 @@ const Navbar = () => {
                 {/* LOGO */}
                 <Link to="/" className="text-sm font-bold tracking-wide text-white hover:opacity-80 transition-opacity flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-tech-primary shadow-[0_0_10px_rgba(56,189,248,0.5)]"></div>
-                    COSIMO
+                    COSIMO DE PASQUALE
                 </Link>
 
                 {/* MENU */}
