@@ -66,7 +66,7 @@ export default function ProjectDetail() {
                 </span>
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight shadow-black drop-shadow-lg">
+                    <h1 className="text-4xl md:text-6xl font-bold font-display text-white mb-6 ...">
                         {project.title}
                     </h1>
 

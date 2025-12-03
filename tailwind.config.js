@@ -6,25 +6,27 @@ export default {
     ],
     theme: {
         extend: {
+            // AGGIUNGI QUESTO BLOCCO FONTFAMILY
             fontFamily: {
-                sans: ['Inter', 'system-ui', 'sans-serif'],
+                sans: ['Inter', 'sans-serif'],      // Font di default per tutto il testo
+                display: ['Space Grotesk', 'sans-serif'], // Font speciale per i titoli
             },
+            // ... qui sotto c'erano i tuoi colori (colors: { ... }) lasciali stare
             colors: {
-                'tech-bg': '#020617',  // Blu scuro profondo
-                'tech-card': '#0f172a', // Card bluastra
-                'tech-border': '#1e293b',
+                'tech-bg': '#0f172a',
+                'tech-card': '#1e293b',
                 'tech-primary': '#38bdf8',
-                'tech-secondary': '#818cf8',
+                'tech-border': '#334155',
             },
             animation: {
-                'fade-in': 'fadeIn 0.6s ease-out forwards',
+                'fade-in': 'fadeIn 0.5s ease-out forwards',
             },
             keyframes: {
                 fadeIn: {
                     '0%': { opacity: '0', transform: 'translateY(10px)' },
                     '100%': { opacity: '1', transform: 'translateY(0)' },
-                }
-            }
+                },
+            },
         },
     },
     plugins: [
