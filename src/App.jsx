@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa'; // Icone Social corrette
+import NotFound from './pages/NotFound'
 
 // Componenti Strutturali
 import Navbar from './components/Navbar';
@@ -38,6 +39,8 @@ function App() {
                             <Route path="/admin/new" element={<NewProject />} />
                             <Route path="/admin/edit/:id" element={<EditProject />} />
                         </Route>
+
+                        <Route path="*" element={<NotFound />} />
 
                     </Routes>
                 </main>
