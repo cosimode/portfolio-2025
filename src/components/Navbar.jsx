@@ -42,7 +42,7 @@ const Navbar = () => {
                     </a>
 
                     <a
-                        href="https://tshdlcjepksleuvjqhli.supabase.co/storage/v1/object/public/documents/Analisi%20RUL%20e%20Manutenzione%20Predittiva.docx"
+                        href="https://tshdlcjepksleuvjqhli.supabase.co/storage/v1/object/public/documents/Damage%20Propagation%20Modeling.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden md:flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full text-xs font-bold hover:bg-slate-200 transition-colors"
@@ -52,7 +52,7 @@ const Navbar = () => {
                     </a>
 
                     {/* LOGICA INTELLIGENTE:
-              Se c'è l'utente (sei tu) -> Mostra "Dashboard"
+              Se c'è l'utente -> Mostra "Dashboard"
               Se non c'è -> Mostra il Lucchetto */}
                     {user ? (
                         <Link

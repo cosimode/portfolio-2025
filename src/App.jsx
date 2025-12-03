@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Mail } from 'lucide-react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa'; // Icone Social corrette
 
 // Componenti Strutturali
 import Navbar from './components/Navbar';
@@ -9,36 +9,40 @@ import ProtectedRoute from './components/ProtectedRoute';
 // Pagine Pubbliche
 import Home from './pages/Home';
 import Login from './pages/Login';
-import ProjectDetail from './pages/ProjectDetail'; // La pagina dettaglio
+import ProjectDetail from './pages/ProjectDetail';
 
 // Pagine Private (Admin)
 import AdminDashboard from './pages/AdminDashboard';
 import NewProject from './pages/NewProject';
-import EditProject from './pages/EditProject'
+import EditProject from './pages/EditProject';
 
 function App() {
     return (
         <Router>
-            <div className="min-h-screen flex flex-col">
+            <div className="min-h-screen flex flex-col bg-tech-bg text-slate-200 font-sans">
                 <Navbar />
 
-                <main className="flex-grow">
+                {/* --- MODIFICA QUI --- */}
+                {/* pb-10: Padding basso su Mobile */}
+                {/* md:pb-24: Padding basso GRANDE su Desktop (risolve il problema) */}
+                <main className="flex-grow pb-10 md:pb-24">
                     <Routes>
-                        {/* --- AREA PUBBLICA (Tutti possono vedere) --- */}
+                        {/* --- AREA PUBBLICA --- */}
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />
-                        <Route path="/project/:id" element={<ProjectDetail />} /> {/* <--- Rotta Dettaglio */}
+                        <Route path="/project/:id" element={<ProjectDetail />} />
 
-                        {/* --- AREA PRIVATA (Solo Cosimo può entrare) --- */}
+                        {/* --- AREA PRIVATA --- */}
                         <Route element={<ProtectedRoute />}>
                             <Route path="/admin" element={<AdminDashboard />} />
                             <Route path="/admin/new" element={<NewProject />} />
-                            <Route path="/admin/edit/:id" element={<EditProject />} /> {/* <--- QUESTA */}
+                            <Route path="/admin/edit/:id" element={<EditProject />} />
                         </Route>
 
                     </Routes>
                 </main>
 
+                {/* FOOTER */}
                 <footer className="border-t border-white/5 bg-tech-card mt-auto">
                     <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
 
