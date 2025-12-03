@@ -1,16 +1,33 @@
-# React + Vite
+# Portfolio Personale - Cosimo De Pasquale
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio professionale sviluppato come Single Page Application (SPA) moderna per mostrare progetti di Full-Stack Development e Machine Learning.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Frontend:** React, Vite, Tailwind CSS
+* **Backend / Database:** Supabase (PostgreSQL, Auth, Storage)
+* **Deploy:** Vercel
+* **Security:** Row Level Security (RLS) policies
 
-## React Compiler
+## ✨ Funzionalità
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Dashboard Admin:** CMS personalizzato per aggiungere/modificare progetti (protetto da autenticazione).
+* **Dual Mode:** Supporto per due tipologie di progetti (Web Apps con link live e ML Models con metriche RMSE/Accuracy).
+* **Responsive Design:** Interfaccia mobile-first ottimizzata.
+* **Performance:** Code splitting e lazy loading delle immagini.
 
-## Expanding the ESLint configuration
+## 🛠️ Installazione Locale
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  Clona la repository:
+    ```bash
+    git clone [https://github.com/cosimode/portfolio-2025.git](https://github.com/cosimode/portfolio-2025.git)
+    ```
+2.  Installa le dipendenze:
+    ```bash
+    npm install
+    ```
+3.  Configura le variabili d'ambiente `.env` (richiedi le chiavi al proprietario).
+4.  Avvia il server:
+    ```bash
+    npm run dev
+    ```
