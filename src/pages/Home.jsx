@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../services/supabase';
-import { Layers, Sparkles, User, Terminal } from 'lucide-react';
+import { Layers, Sparkles, User, Terminal, Cpu } from 'lucide-react';
 
 // IMPORTA IL NUOVO COMPONENTE
 import ProjectCard from '../components/ProjectCard';
@@ -47,7 +47,7 @@ export default function Home() {
             {/* HERO SECTION */}
             <div className="mb-24 animate-fade-in">
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
-                    Cosimo<span className="text-slate-600">.</span>Portfolio
+                    Cosimo<span className="text-slate-600">.</span>Dev
                 </h1>
                 <p className="text-xl text-slate-400 max-w-2xl leading-relaxed">
                     Laureato Triennale in <b>Ingegneria Informatica</b>. <br/>
@@ -90,11 +90,21 @@ export default function Home() {
 
             {/* FILTRI */}
             <div className="flex flex-wrap gap-3 mb-10 border-b border-white/5 pb-6">
-                <button onClick={() => setFilter('all')} className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'all' ? 'bg-white text-black' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>Tutti i Progetti</button>
-                <button onClick={() => setFilter('web')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'web' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/50' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}><Layers size={16} /> Web Apps</button>
-                <button onClick={() => setFilter('ml')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'ml' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}><Sparkles size={16} /> Machine Learning</button>
-            </div>
+                <button onClick={() => setFilter('all')} className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'all' ? 'bg-white text-black' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    Tutti
+                </button>
+                <button onClick={() => setFilter('web')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'web' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/50' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <Layers size={16} /> Web
+                </button>
+                <button onClick={() => setFilter('ml')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'ml' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <Sparkles size={16} /> AI / ML
+                </button>
 
+                {/* --- NUOVO TASTO ALTRO --- */}
+                <button onClick={() => setFilter('other')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'other' ? 'bg-purple-500/20 text-purple-300 border border-purple-500/50' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+                    <Cpu size={16} /> Altro
+                </button>
+            </div>
             {/* GRID PROGETTI (Refactoring Completo) */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
                 {filtered.map((project, index) => (

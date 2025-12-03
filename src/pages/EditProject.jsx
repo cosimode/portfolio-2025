@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../services/supabase';
-import { ArrowLeft, Save, Loader2, Link as LinkIcon, Layers, BrainCircuit } from 'lucide-react';
+import { ArrowLeft, Save, Loader2, Link as LinkIcon, Layers, BrainCircuit, Cpu } from 'lucide-react';
 
 export default function EditProject() {
     const { id } = useParams();
@@ -12,8 +12,8 @@ export default function EditProject() {
     // STATI DEL FORM
     const [category, setCategory] = useState('web');
     const [title, setTitle] = useState('');
-    const [description, setDescription] = useState(''); // Descrizione Breve
-    const [content, setContent] = useState(''); // Articolo Dettagliato (content_md)
+    const [description, setDescription] = useState('');
+    const [content, setContent] = useState('');
 
     // METADATA
     const [stack, setStack] = useState('');
@@ -32,7 +32,7 @@ export default function EditProject() {
             } else {
                 setTitle(data.title);
                 setDescription(data.description);
-                setContent(data.content_md || ''); // Carica l'articolo lungo
+                setContent(data.content_md || '');
                 setCategory(data.category);
 
                 if (data.metadata) {
@@ -52,7 +52,6 @@ export default function EditProject() {
         e.preventDefault();
         setSaving(true);
 
-        // Ricostruiamo il JSON in base alla NUOVA categoria selezionata
         let metadata = {
             stack: stack.split(',').map(s => s.trim()),
             url: url
@@ -67,8 +66,8 @@ export default function EditProject() {
             .update({
                 title,
                 description,
-                content_md: content, // Salva la descrizione dettagliata
-                category,            // Salva la nuova categoria
+                content_md: content,
+                category,
                 metadata
             })
             .eq('id', id);
@@ -97,32 +96,31 @@ export default function EditProject() {
                 <div className="bg-tech-card border border-tech-border rounded-2xl p-8 shadow-2xl">
                     <form onSubmit={handleUpdate} className="space-y-8">
 
-                        {/* --- SELETTORE CATEGORIA (ORA ATTIVO) --- */}
-                        <div className="grid grid-cols-2 gap-4">
+                        {/* SELETTORE CATEGORIA A 3 COLONNE */}
+                        <div className="grid grid-cols-3 gap-4">
+
                             <button
                                 type="button"
                                 onClick={() => setCategory('web')}
-                                className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${
-                                    category === 'web'
-                                        ? 'bg-blue-500/20 border-blue-500 text-blue-400'
-                                        : 'bg-slate-900/50 border-tech-border text-slate-500 hover:bg-slate-800'
-                                }`}
+                                className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${category === 'web' ? 'bg-blue-500/20 border-blue-500 text-blue-400' : 'bg-slate-900/50 border-tech-border text-slate-500 hover:bg-slate-800'}`}
                             >
-                                <Layers size={24} />
-                                <span className="font-bold">Web App</span>
+                                <Layers size={24} /> <span className="font-bold">Web App</span>
                             </button>
 
                             <button
                                 type="button"
                                 onClick={() => setCategory('ml')}
-                                className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${
-                                    category === 'ml'
-                                        ? 'bg-indigo-500/20 border-indigo-500 text-indigo-400'
-                                        : 'bg-slate-900/50 border-tech-border text-slate-500 hover:bg-slate-800'
-                                }`}
+                                className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${category === 'ml' ? 'bg-indigo-500/20 border-indigo-500 text-indigo-400' : 'bg-slate-900/50 border-tech-border text-slate-500 hover:bg-slate-800'}`}
                             >
-                                <BrainCircuit size={24} />
-                                <span className="font-bold">ML Model</span>
+                                <BrainCircuit size={24} /> <span className="font-bold">ML Model</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => setCategory('other')}
+                                className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${category === 'other' ? 'bg-purple-500/20 border-purple-500 text-purple-400' : 'bg-slate-900/50 border-tech-border text-slate-500 hover:bg-slate-800'}`}
+                            >
+                                <Cpu size={24} /> <span className="font-bold">Altro</span>
                             </button>
                         </div>
 
@@ -133,15 +131,13 @@ export default function EditProject() {
                                 <input type="text" required value={title} onChange={e => setTitle(e.target.value)} className="w-full bg-tech-bg border border-tech-border rounded-lg px-4 py-3 text-white focus:border-tech-primary outline-none" />
                             </div>
                             <div>
-                                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Descrizione Breve (per la Card)</label>
+                                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Descrizione Breve</label>
                                 <textarea required value={description} onChange={e => setDescription(e.target.value)} rows={2} className="w-full bg-tech-bg border border-tech-border rounded-lg px-4 py-3 text-white focus:border-tech-primary outline-none resize-none" />
                             </div>
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Tech Stack</label>
                                 <input type="text" value={stack} onChange={e => setStack(e.target.value)} className="w-full bg-tech-bg border border-tech-border rounded-lg px-4 py-3 text-white focus:border-tech-primary outline-none" />
                             </div>
-
-                            {/* CAMPO LINK (DINAMICO) */}
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-2">
                                     <LinkIcon size={14}/> {category === 'web' ? 'Sito Live URL' : 'Link Dataset / Repo GitHub'}
@@ -150,7 +146,7 @@ export default function EditProject() {
                             </div>
                         </div>
 
-                        {/* CAMPI SPECIFICI ML (Visibili solo se selezioni ML) */}
+                        {/* CAMPI ML */}
                         {category === 'ml' && (
                             <div className="grid grid-cols-2 gap-4 p-4 bg-indigo-500/10 rounded-xl border border-indigo-500/20 animate-fade-in">
                                 <div>
@@ -164,7 +160,7 @@ export default function EditProject() {
                             </div>
                         )}
 
-                        {/* ARTICOLO DETTAGLIATO */}
+                        {/* ARTICOLO */}
                         <div>
                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Articolo Tecnico (Markdown)</label>
                             <textarea required value={content} onChange={e => setContent(e.target.value)} rows={15} className="w-full bg-tech-bg border border-tech-border rounded-lg px-4 py-3 text-white font-mono text-sm focus:border-tech-primary outline-none" placeholder="# Titolo..."/>
