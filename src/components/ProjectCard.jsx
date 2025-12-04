@@ -101,7 +101,7 @@ export default function ProjectCard({ project, className }) {
                         ))}
                         {project.metadata?.rmse && (
                             <span className="text-[10px] font-mono text-emerald-400 bg-emerald-900/10 px-2 py-1 rounded border border-emerald-500/20">
-                          RMSE: {project.metadata.rmse}
+                          {project.metadata.rmse}
                       </span>
                         )}
                     </div>
