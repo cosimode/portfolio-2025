@@ -74,7 +74,7 @@ function App() {
                         </div>
 
                         <div className="text-slate-600 text-xs">
-                            © 2025 Cosimo. Built with React & Supabase.
+                            © {new Date().getFullYear()} Cosimo De Pasquale. Built with React & Supabase.
                         </div>
                     </div>
                 </footer>
