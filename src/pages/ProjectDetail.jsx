@@ -129,7 +129,9 @@ export default function ProjectDetail() {
                         {project.category === 'ml' && (
                             <div className="mt-6 pt-6 border-t border-white/5">
                                 <div className="flex justify-between items-center mb-2">
-                                    <span className="text-xs text-slate-500 uppercase font-bold">Best RMSE</span>
+                                    {/* Cambiato da "Best RMSE" a "Performance" (o "Metric") */}
+                                    <span className="text-xs text-slate-500 uppercase font-bold">Performance</span>
+                                    {/* Qui mostra solo il valore che hai scritto tu */}
                                     <span className="text-emerald-400 font-mono font-bold">{project.metadata.rmse}</span>
                                 </div>
                                 <div className="flex justify-between items-center">
