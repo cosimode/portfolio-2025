@@ -48,7 +48,7 @@ const Navbar = () => {
 
                     {/* RESUME: Visibile solo su Tablet/PC */}
                     <a
-                        href="https://tshdlcjepksleuvjqhli.supabase.co/storage/v1/object/public/documents/Analisi%20RUL.pdf"
+                        href="https://tshdlcjepksleuvjqhli.supabase.co/storage/v1/object/public/documents/CV_DePasquale_ENG%20(1).pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden md:flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full text-xs font-bold hover:bg-slate-200 transition-colors"
