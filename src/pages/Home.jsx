@@ -50,7 +50,7 @@ export default function Home() {
                     Cosimo<span className="text-slate-600">.</span>Dev
                 </h1>
                 <p className="text-xl text-slate-400 max-w-2xl leading-relaxed">
-                    Laureato Triennale in <b>Ingegneria Informatica</b>. <br/>
+                    Presto Laureato Triennale in <b>Ingegneria Informatica</b>. <br/>
                     Esploro il mondo dello sviluppo software con curiosità e rigore accademico.
                 </p>
             </div>
@@ -63,9 +63,10 @@ export default function Home() {
                         <h2 className="text-2xl font-bold text-white">Chi Sono</h2>
                     </div>
                     <p className="text-slate-400 leading-relaxed mb-4">
-                        Sono un <b>Laureato Triennale in Ingegneria Informatica</b> (percorso P-Tech).
-                        Il mio percorso accademico mi ha fornito solide basi trasversali, dalla logica di programmazione in <b>C</b> e <b>Java</b> all'analisi dati con <b>Matlab</b>.
-                    </p>
+                        Sono uno <b>studente laureando in Ingegneria Informatica</b> (percorso P-Tech) presso il Politecnico di Bari, con laurea prevista a Febbraio 2026. Il mio percorso mi ha permesso di spaziare dalla logica di programmazione pura in Java e C, allo sviluppo web moderno con React, fino all'analisi dati avanzata in Matlab.
+
+                        Mi considero un ingegnere versatile: la mia tesi sulla manutenzione predittiva di motori aeronautici (basata su modelli Deep Learning CNN-BiLSTM) dimostra la mia capacità di affrontare problemi industriali complessi, mentre i miei progetti web come Terra, Tracce e Chronos riflettono la mia passione per la creazione di prodotti digitali completi, scalabili e orientati all'utente.
+                        </p>
                     <p className="text-slate-400 leading-relaxed">
                         Non mi definisco ancora uno specialista verticale, ma un ingegnere versatile che ha studiato e applicato con successo diverse tecnologie per risolvere problemi concreti.
                     </p>
